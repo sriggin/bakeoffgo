@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+option go_package = "example.com/bakeoff/trafficscanner";
+
+package ivt;
+
+service TrafficScanner {
+
+  rpc IsTrafficValid(TrafficScanRequest) returns (TrafficScanResponse) {}
+}
+
+message TrafficScanRequest {
+  string ip = 1;
+  string userAgent = 2;
+}
+
+message TrafficScanResponse {
+  bool isValid = 1;
+}
